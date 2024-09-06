@@ -47,7 +47,7 @@ resource "aws_security_group" "blog" {
   tags = {
     Terraform = "true"
   }
-  vpc_id = data.aws_vpc.default.id
+  vpc_id = module.blog_vpc.vpc_id
 }
 
 module "blog_sg" {
