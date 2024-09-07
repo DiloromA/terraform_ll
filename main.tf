@@ -64,7 +64,12 @@ module "alb" {
       protocol         = "HTTP"
       port             = 80
       target_type      = "instance"
-      target_id        = aws_instane.blog.id
+      targets = {
+        my_target = {
+          target_id = aws_instane.blog.id
+          port = 80
+        }
+      }
     }
   }
 
